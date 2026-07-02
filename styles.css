@@ -1185,8 +1185,19 @@ nav a:hover { color: var(--sage-deep); }
 .card-paid {
   background: linear-gradient(135deg, #1a2830 0%, #2d4a42 45%, #4a7c6a 100%);
   color: #fff;
-  min-height: 240px;
+  min-height: 200px;
   justify-content: flex-end;
+}
+
+.card-paid-text {
+  min-height: 180px;
+  justify-content: flex-end;
+}
+
+.bento-icon-left {
+  top: 1.25rem;
+  left: 1.25rem;
+  right: auto;
 }
 
 .card-paid h3 { color: #fff; }
@@ -1371,6 +1382,11 @@ nav a:hover { color: var(--sage-deep); }
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+}
+
+.premium-visual-cta-only {
+  justify-content: center;
+  min-height: 12rem;
 }
 
 .premium-shot-grid {
