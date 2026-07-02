@@ -1,12 +1,26 @@
 (function () {
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) return;
-
   var els = document.querySelectorAll("[data-reveal]");
-  if (!("IntersectionObserver" in window)) {
-    els.forEach(function (el) { el.classList.add("is-visible"); });
+  if (!els.length) return;
+
+  function showAll() {
+    els.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) {
+    showAll();
     return;
   }
+
+  if (!("IntersectionObserver" in window)) {
+    showAll();
+    return;
+  }
+
+  document.documentElement.classList.add("js-reveal-ready");
+
   var io = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (e) {
@@ -16,7 +30,21 @@
         }
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    { rootMargin: "0px 0px -5% 0px", threshold: 0.01 }
   );
-  els.forEach(function (el) { io.observe(el); });
+
+  els.forEach(function (el) {
+    io.observe(el);
+  });
+
+  requestAnimationFrame(function () {
+    els.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        el.classList.add("is-visible");
+      }
+    });
+  });
+
+  setTimeout(showAll, 1200);
 })();
