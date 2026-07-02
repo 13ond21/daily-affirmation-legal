@@ -52,7 +52,7 @@ Paste the **privacy policy** link into: **Play Console → App content → Priva
 
 ## Customize contact email
 
-Support contact: **autoaccentsni@gmail.com** (in privacy and terms pages).
+Developer: **Cloudy NI**. Support contact: **autoaccentsni@gmail.com** (in privacy and terms pages).
 
 ## Different repo name?
 
