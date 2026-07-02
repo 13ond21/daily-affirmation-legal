@@ -10,10 +10,13 @@ if (-not (Test-Path ".git")) {
     git branch -M main
 }
 
-git add index.html privacy-policy.html terms-and-conditions.html styles.css README.md
+git add index.html privacy-policy.html terms-and-conditions.html styles.css site.js README.md
+if (Test-Path "premium_photos") { git add premium_photos/ }
+if (Test-Path "screenshots") { git add screenshots/ }
+if (Test-Path ".nojekyll") { git add .nojekyll }
 $status = git status --porcelain
 if ($status) {
-    git commit -m "Update Daily Affirmation legal pages"
+    git commit -m "Update Daily Affirmation site and legal pages"
 } else {
     Write-Host "No changes to commit."
 }
