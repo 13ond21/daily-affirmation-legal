@@ -1,6 +1,11 @@
-# Daily Affirmation — legal site (GitHub Pages)
+# Daily Affirmation — website (GitHub Pages)
 
-Static site for **Google Play** privacy policy URL and public terms.
+Marketing landing page + **Google Play** privacy policy and terms.
+
+**Live site:** https://13ond21.github.io/daily-affirmation-legal/
+
+**Play Store link** (update `id=` if package changes):  
+`https://play.google.com/store/apps/details?id=com.dailyaffirmation.app`
 
 ## Publish to GitHub (`13ond21`)
 
