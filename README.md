@@ -45,6 +45,7 @@ git push -u origin main
 | Use | URL |
 |-----|-----|
 | **Privacy policy** (required) | `https://13ond21.github.io/daily-affirmation-legal/privacy-policy.html` |
+| **app-ads.txt** (AdMob; set Play **Developer website** to site home below) | `https://13ond21.github.io/daily-affirmation-legal/app-ads.txt` |
 | Terms (optional in Console; good for store/support) | `https://13ond21.github.io/daily-affirmation-legal/terms-and-conditions.html` |
 | Home | `https://13ond21.github.io/daily-affirmation-legal/` |
 
