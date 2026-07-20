@@ -7,15 +7,18 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 })();
+
 (function () {
   var track = document.getElementById('shotsTrack');
   var dotsWrap = document.getElementById('shotsDots');
   var prevBtn = document.querySelector('.lc-carousel-prev');
   var nextBtn = document.querySelector('.lc-carousel-next');
   if (!track || !dotsWrap || !prevBtn || !nextBtn) return;
+
   var slides = Array.prototype.slice.call(track.children);
   var currentIndex = 0;
   var isSyncing = false;
+
   function computeClosestIndex() {
     var maxScroll = track.scrollWidth - track.clientWidth;
     if (track.scrollLeft >= maxScroll - 2) return slides.length - 1;
@@ -30,6 +33,7 @@
     });
     return closest;
   }
+
   function goTo(i) {
     i = Math.max(0, Math.min(slides.length - 1, i));
     currentIndex = i;
@@ -40,6 +44,7 @@
     isSyncing = true;
     track.scrollTo({ left: targetLeft, behavior: 'smooth' });
   }
+
   slides.forEach(function (slide, i) {
     var dot = document.createElement('button');
     dot.type = 'button';
@@ -48,16 +53,13 @@
     dotsWrap.appendChild(dot);
   });
   var dots = Array.prototype.slice.call(dotsWrap.children);
+
   function updateActive() {
     dots.forEach(function (d, i) { d.classList.toggle('active', i === currentIndex); });
     prevBtn.disabled = currentIndex <= 0;
     nextBtn.disabled = currentIndex >= slides.length - 1;
   }
-  // Only resync from real user scrolling (touch drag, trackpad) —
-  // programmatic scrolls from goTo() already set currentIndex correctly
-  // and must not be second-guessed here. 'scrollend' fires exactly once
-  // when a scroll truly finishes, so there's no race with goTo's own
-  // smooth-scroll animation (unlike a fixed debounce timer).
+
   function handleScrollSettled() {
     if (isSyncing) { isSyncing = false; return; }
     currentIndex = computeClosestIndex();
@@ -72,8 +74,10 @@
       scrollTimeout = setTimeout(handleScrollSettled, 150);
     }, { passive: true });
   }
+
   prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
   nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+
   window.addEventListener('resize', function () { goTo(currentIndex); });
   updateActive();
 })();
