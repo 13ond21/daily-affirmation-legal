@@ -1,5 +1,5 @@
 (function () {
-  var header = document.getElementById("header");
+  var header = document.querySelector(".site-header");
   if (!header) return;
   function onScroll() {
     header.classList.toggle("is-scrolled", window.scrollY > 8);
