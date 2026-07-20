@@ -244,7 +244,7 @@ body.landing::before { z-index: -2; }
 .lc-premium { background: linear-gradient(155deg,#2d3436 0%,#3949ab 55%,#5c6bc0 100%); color: #fff; }
 .lc-kicker-light { color: #c5cae9; }
 .lc-h2-light { color: #fff; }
-.lc-sub-light { color: rgba(255,255,255,.78); }
+.lc-sub-light, .lc-sub { color: #ffffff !important; opacity: 0.95; }
 
 .landing .compare-grid { display: grid; gap: 1.25rem; text-align: left; }
 @media (min-width:640px) { .landing .compare-grid { grid-template-columns: 1fr 1fr; } }
