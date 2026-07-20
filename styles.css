@@ -239,22 +239,39 @@ body.landing::before { z-index: -2; }
 .lc-quote { margin: 2.5rem auto 0; max-width: 36rem; padding: 1.5rem 1.75rem; border-radius: 28px; background: rgba(255,255,255,.88); border: 1px solid var(--border); text-align: center; }
 .lc-quote p { margin: 0; font-size: 1.1rem; color: var(--ink); }
 .lc-quote footer { margin-top: .75rem; font-size: .82rem; color: var(--body); font-weight: 600; }
+
+/* —— Premium Section & Contrast Fixes —— */
 .lc-premium { background: linear-gradient(155deg,#2d3436 0%,#3949ab 55%,#5c6bc0 100%); color: #fff; }
 .lc-kicker-light { color: #c5cae9; }
 .lc-h2-light { color: #fff; }
 .lc-sub-light { color: rgba(255,255,255,.78); }
+
 .landing .compare-grid { display: grid; gap: 1.25rem; text-align: left; }
 @media (min-width:640px) { .landing .compare-grid { grid-template-columns: 1fr 1fr; } }
+
 .landing .compare-col { background: rgba(255,255,255,.95); border-radius: 28px; padding: 1.75rem 1.5rem; color: var(--ink); }
 .landing .compare-col h3 { font-size: 1.3rem; margin: 0 0 .35rem; padding-bottom: .75rem; border-bottom: 1px dashed rgba(45,52,54,.12); }
-.lc-plan-tagline { margin: 0 0 1rem; font-size: .88rem; color: var(--body); font-weight: 600; }
-.landing .compare-premium { background: linear-gradient(180deg,#fff,#e8eaf6); box-shadow: 0 12px 40px rgba(0,0,0,.15); }
 .landing .compare-col ul { margin: 0; padding-left: 1.15rem; font-size: .92rem; color: var(--body); line-height: 1.55; }
+
+/* Light Plan Tagline */
+.lc-plan-tagline { margin: 0 0 1rem; font-size: .88rem; color: var(--body); font-weight: 600; }
+
+/* Premium Card specific contrast over dark section / dark gradient background */
+.landing .lc-premium .compare-col { background: rgba(255, 255, 255, 0.95); color: var(--ink); }
+.landing .lc-premium .compare-col h3 { color: var(--ink); border-bottom-color: rgba(45,52,54,.15); }
+.landing .lc-premium .compare-col ul { color: var(--body); }
+.landing .lc-premium .compare-col li strong { color: var(--ink); }
+
+/* Distinct High-Contrast Premium Card Modifier if needed */
+.landing .compare-premium { background: linear-gradient(180deg,#fff,#e8eaf6); box-shadow: 0 12px 40px rgba(0,0,0,.15); }
+.landing .compare-premium .lc-plan-tagline { color: #3949ab; }
+
 .lc-plan-period { font-size: .75rem; font-weight: 700; text-transform: uppercase; color: var(--purple); }
 .lc-cta { padding: 3rem 0 4rem; text-align: center; }
 .lc-cta-title { font-size: clamp(1.75rem, 4vw, 2.35rem); margin: 0 0 .5rem; }
 .lc-cta-sub { color: var(--body); margin: 0 0 1.5rem; }
 .lc-contact a { color: #3949ab; font-weight: 600; }
+
 .landing .site-footer {
   padding: 2rem 1.25rem 2.5rem; background: #2d3436; color: rgba(255,255,255,.75); text-align: left;
 }
